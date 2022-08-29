@@ -1,1 +1,1 @@
- web: java -cp target/classes:C:\Program Files\Java\jdk-17.0.3.1\lib*.jar com.portfolioAtm.api.PortfolioAtmApiApplication
+ web: java -cp target/classes:target\classes\com\portfolioAtm\api com.portfolioAtm.api.PortfolioAtmApiApplication
