@@ -1,1 +1,1 @@
- web: java -jar target/api-0.0.1-SNAPSHOT.jar com.portfolioAtm.api.PortfolioAtmApiApplication
+ web: java -jar -Dserver.port=$PORT $JAVA_OPTS target/api-0.0.1-SNAPSHOT.jar com.portfolioAtm.api.PortfolioAtmApiApplication
