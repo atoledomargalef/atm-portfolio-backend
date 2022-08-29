@@ -1,1 +1,1 @@
- web: java $JAVA_OPTS -cp target/classes:target/m2e-wtp/*.jar com.portfolioAtm.api.PortfolioAtmApiApplication
+ web: java -cp target/classes:target/m2e-wtp/*.jar com.portfolioAtm.api.PortfolioAtmApiApplication
