@@ -1,1 +1,1 @@
- web: java -cp target/classes:target\classes\com\portfolioAtm\api com.portfolioAtm.api.PortfolioAtmApiApplication
+ web: java -cp target/classes:target/api-0.0.1-SNAPSHOT.jar com.portfolioAtm.api.PortfolioAtmApiApplication
