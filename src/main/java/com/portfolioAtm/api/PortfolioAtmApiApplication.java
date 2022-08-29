@@ -8,7 +8,8 @@ public class PortfolioAtmApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PortfolioAtmApiApplication.class, args);
-	}
+
+        }
 
         
 }
