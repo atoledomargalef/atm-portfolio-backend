@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-        @PreAuthorize("isAuthenticated()")  
+@PreAuthorize("isAuthenticated()")  
 @CrossOrigin(origins = "https://atm-portfolio.web.app", maxAge=3600) 
 @RestController
 public class PersController {
