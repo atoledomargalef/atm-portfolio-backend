@@ -52,8 +52,10 @@ public class PersController {
              
             perServ.borrarPersona(id);
         }
+        
+        
         @PutMapping ("/editar/persona/{id}")
-    public Persona editPersona(@PathVariable Long id,
+         public Persona editPersona(@PathVariable Long id,
                                 @RequestParam ("nombre") String nuevoNombre,
                                 @RequestParam ("apellido") String nuevoApellido,
                                 @RequestParam ("dni") String nuevoDNI,
@@ -89,7 +91,32 @@ public class PersController {
         
         
     }
+          @PutMapping ("/editar/persona2/{id}")
+         public Persona editPersona(@PathVariable Long id,
+                                @RequestBody Persona per){
         
+        Persona perso = perServ.buscarPersona(id);
+        
+        perso.setApellido(per.getApellido());
+        perso.setNombre(per.getNombre());
+        perso.setDni(per.getDni());
+        perso.setFecha_nac(per.getFecha_nac());
+        perso.setLugar_nac(per.getLugar_nac());
+        perso.setLugar_act(per.getLugar_act());
+        perso.setDireccion_act(per.getDireccion_act());
+        perso.setTelefono_cel(per.getTelefono_cel());
+        perso.setBio_about(per.getBio_about());
+        perso.setImg_perfil(per.getImg_perfil());
+        perso.setProfesion(per.getProfesion());
+        perso.setEmail(per.getEmail());
+       
+        
+        perServ.crearPersona(perso);
+        
+        return perso;
+        
+        
+    }
 
     
 }
