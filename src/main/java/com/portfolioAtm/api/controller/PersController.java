@@ -23,8 +23,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@PreAuthorize("isAuthenticated()")  
-@CrossOrigin(origins = "https://atm-portfolio.web.app", maxAge=3600) 
+ /*"https://atm-portfolio.web.app"*/
+@CrossOrigin(origins = "http://localhost:4200", maxAge=3600) 
 @RestController
 public class PersController {
     
@@ -34,8 +34,7 @@ public class PersController {
         @PostMapping ("/new/persona")
         public void agregarPersona( @RequestBody Persona pers) {
                perServ.crearPersona(pers);
-        } 
-        @PreAuthorize("permitAll()")  
+        }  
         @GetMapping ("/ver/personas")
         @ResponseBody
         public List<Persona> verPersonas() {
@@ -52,7 +51,6 @@ public class PersController {
              
             perServ.borrarPersona(id);
         }
-        @PreAuthorize("hasRole('ADMIN')")
         @PutMapping ("/editar/persona/{id}")
     public Persona editPersona(@PathVariable Long id,
                                 @RequestParam ("nombre") String nuevoNombre,
