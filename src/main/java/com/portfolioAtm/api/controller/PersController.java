@@ -34,7 +34,7 @@ public class PersController {
         public void agregarPersona( @RequestBody Persona pers) {
                perServ.crearPersona(pers);
         } 
-        
+        @PreAuthorize("permitAll()")  
         @GetMapping ("/ver/personas")
         @ResponseBody
         public List<Persona> verPersonas() {

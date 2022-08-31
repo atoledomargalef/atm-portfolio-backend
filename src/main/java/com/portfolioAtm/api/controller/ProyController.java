@@ -33,7 +33,7 @@ public class ProyController {
                
         return "El proyecto fue creado Correctamente";
         } 
-        
+        @PreAuthorize("permitAll()")  
         @GetMapping ("/ver/proyectos")
         public List<Proyecto> verProy() {
             return proyServ.verProy();
