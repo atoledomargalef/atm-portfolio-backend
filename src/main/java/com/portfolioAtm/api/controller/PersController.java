@@ -30,7 +30,6 @@ public class PersController {
         @Autowired
         private IPersonaService perServ;
 
-        @PreAuthorize("hasRole('ADMIN')")
         @PostMapping ("/new/persona")
         public void agregarPersona( @RequestBody Persona pers) {
                perServ.crearPersona(pers);
@@ -46,13 +45,13 @@ public class PersController {
             
             return perServ.verPersonas();
         }    
-        @PreAuthorize("hasRole('ADMIN')")
+        
         @DeleteMapping ("/delete/persona/{id}")
         public void borrarPersona (@PathVariable Long id) {
              
             perServ.borrarPersona(id);
         }
-        @PreAuthorize("hasRole('ADMIN')")
+        
         @PutMapping ("/editar/persona/{id}")
     public Persona editPersona(@PathVariable Long id,
                                 @RequestParam ("nombre") String nuevoNombre,

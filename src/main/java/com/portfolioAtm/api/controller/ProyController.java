@@ -27,7 +27,6 @@ public class ProyController {
     
      @Autowired
         private IProyectosService proyServ;
-@PreAuthorize("hasRole('ADMIN')")
         @PostMapping ("/new/proyecto")
         public String agregarProy( @RequestBody Proyecto proy) {
                proyServ.crearProy(proy);
@@ -39,13 +38,11 @@ public class ProyController {
         public List<Proyecto> verProy() {
             return proyServ.verProy();
         }    
-        @PreAuthorize("hasRole('ADMIN')")
         @DeleteMapping ("/delete/proyecto/{id}")
         public void borrarProy (@PathVariable Long id) {
              
             proyServ.borrarProy(id);
         }
-        @PreAuthorize("hasRole('ADMIN')")
         @PutMapping ("/editar/proyectos/{id}")
     public Proyecto editProy(@PathVariable Long id,
                                 @RequestParam ("titulo") String nuevoTitulo,
