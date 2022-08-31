@@ -54,7 +54,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
                 .frameOptions().disable().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint).and().authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/**").permitAll()
+                .antMatchers("/**").permitAll()
                 .anyRequest().authenticated();
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         
