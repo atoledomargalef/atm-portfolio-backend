@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "https://atm-portfolio.web.app/login", maxAge=3600)
+@CrossOrigin
 public class AuthController {
     
     @Autowired

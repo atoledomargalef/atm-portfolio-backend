@@ -24,7 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
  /*"http://localhost:4200"*/
-@CrossOrigin(origins = "https://atm-portfolio.web.app", maxAge=3600) 
+/*(origins = "https://atm-portfolio.web.app", maxAge=3600) */
+@CrossOrigin
 @RestController
 public class PersController {
     
