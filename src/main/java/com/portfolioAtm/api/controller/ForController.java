@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 
-@CrossOrigin
+@CrossOrigin(origins = "https://atm-portfolio.web.app", maxAge=3600) 
 @RestController
 public class ForController {
     
@@ -42,7 +42,7 @@ public class ForController {
         }    
         
         @DeleteMapping ("/delete/formacion/{id}")
-        public void borrarFor (@PathVariable Long id) {
+        public void borrarFor(@PathVariable Long id) {
              
           forServ.borrarFor(id);
         }

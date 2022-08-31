@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 
-@CrossOrigin
+@CrossOrigin(origins = "https://atm-portfolio.web.app", maxAge=3600) 
 @RestController
 public class ExpController {
     
