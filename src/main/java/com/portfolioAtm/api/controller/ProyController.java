@@ -6,6 +6,7 @@ import com.portfolioAtm.api.model.Proyecto;
 import com.portfolioAtm.api.service.experienciaServ.IProyectosService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +27,7 @@ public class ProyController {
     
      @Autowired
         private IProyectosService proyServ;
-
+@PreAuthorize("hasRole('ADMIN')")
         @PostMapping ("/new/proyecto")
         public String agregarProy( @RequestBody Proyecto proy) {
                proyServ.crearProy(proy);
@@ -38,12 +39,13 @@ public class ProyController {
         public List<Proyecto> verProy() {
             return proyServ.verProy();
         }    
-        
+        @PreAuthorize("hasRole('ADMIN')")
         @DeleteMapping ("/delete/proyecto/{id}")
         public void borrarProy (@PathVariable Long id) {
              
             proyServ.borrarProy(id);
         }
+        @PreAuthorize("hasRole('ADMIN')")
         @PutMapping ("/editar/proyectos/{id}")
     public Proyecto editProy(@PathVariable Long id,
                                 @RequestParam ("titulo") String nuevoTitulo,

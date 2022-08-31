@@ -10,6 +10,7 @@ import com.portfolioAtm.api.service.experienciaServ.IExperienciaService;
 import com.portfolioAtm.api.service.experienciaServ.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +30,7 @@ public class PersController {
         @Autowired
         private IPersonaService perServ;
 
+        @PreAuthorize("hasRole('ADMIN')")
         @PostMapping ("/new/persona")
         public void agregarPersona( @RequestBody Persona pers) {
                perServ.crearPersona(pers);
@@ -44,12 +46,13 @@ public class PersController {
             
             return perServ.verPersonas();
         }    
-        
+        @PreAuthorize("hasRole('ADMIN')")
         @DeleteMapping ("/delete/persona/{id}")
         public void borrarPersona (@PathVariable Long id) {
              
             perServ.borrarPersona(id);
         }
+        @PreAuthorize("hasRole('ADMIN')")
         @PutMapping ("/editar/persona/{id}")
     public Persona editPersona(@PathVariable Long id,
                                 @RequestParam ("nombre") String nuevoNombre,
