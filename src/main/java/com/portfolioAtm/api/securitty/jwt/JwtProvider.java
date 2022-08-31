@@ -35,7 +35,7 @@ public class JwtProvider {
        private int expiration;
        
        public String generateToken(Authentication auth){
-           UsuarioPrincipal userPrin = (UsuarioPrincipal) auth.getPrincipal();
+           UsuarioPrincipal userPrin = (UsuarioPrincipal)auth.getPrincipal();
            
            return Jwts.builder().setSubject(userPrin.getUsername())
                    .setIssuedAt(new Date())

@@ -51,7 +51,7 @@ public class PersController {
              
             perServ.borrarPersona(id);
         }
-        
+        @PreAuthorize("hasRole('ADMIN')")
         @PutMapping ("/editar/persona/{id}")
     public Persona editPersona(@PathVariable Long id,
                                 @RequestParam ("nombre") String nuevoNombre,
