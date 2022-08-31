@@ -10,6 +10,7 @@ import com.portfolioAtm.api.securitty.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -53,7 +54,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
                 .frameOptions().disable().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint).and().authorizeRequests()
-                .antMatchers("/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/**").permitAll()
                 .anyRequest().authenticated();
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         
