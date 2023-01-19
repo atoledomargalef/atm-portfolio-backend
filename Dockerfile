@@ -4,4 +4,4 @@
 FROM openjdk:8-jdk-alpine
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","atm-portfolio-tro2z3-portfolio-app-prod-13gswm-cshjpa"]
+ENTRYPOINT ["java","-jar","/app.jar"]
