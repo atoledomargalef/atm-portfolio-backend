@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-alpine
 
 WORKDIR /usr/src/app
 
-COPY . .
+COPY .
 
 # Run as non-root
 RUN addgroup -g 8080 -S appuser && adduser -u 1001 -S appuser -G appuser
